@@ -32,7 +32,4 @@ passing = KubernetesPodOperator(namespace='ns-airflow-dev',
                           dag=dag
                           )
 
-
-                          )
-
 passing.set_upstream(start)
