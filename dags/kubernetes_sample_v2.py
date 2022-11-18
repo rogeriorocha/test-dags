@@ -5,7 +5,7 @@ from airflow.operators.dummy_operator import DummyOperator
 
 
 default_args = {
-    'owner': 'airflow',
+    'owner': 'rogeriosilvarocha@gmail.com',
     'depends_on_past': False,
     'start_date': datetime.utcnow(),
     'email': ['rogeriosilvarocha@gmail.com'],
