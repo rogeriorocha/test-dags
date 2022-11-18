@@ -12,11 +12,13 @@ default_args = {
     'email_on_failure': False,
     'email_on_retry': False,
     'retries': 1,
-    'retry_delay': timedelta(minutes=5)
+    'schedule': "*/5 * * * *",
+    'retry_delay': timedelta(minutes=10)
 }
 
+#, schedule_interval=timedelta(minutes=10)
 dag = DAG(
-    'kubernetes_sample_v2', default_args=default_args, schedule_interval=timedelta(minutes=10))
+    'kubernetes_sample_v2', default_args=default_args)
 
 
 start = DummyOperator(task_id='run_this_first', dag=dag)
