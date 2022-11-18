@@ -23,8 +23,9 @@ start = DummyOperator(task_id='run_this_first', dag=dag)
 
 passing = KubernetesPodOperator(namespace='ns-airflow-dev',
                           image="python:3.6",
-                          cmds=["python","-c"],
-                          arguments=["print('hello world')"],
+                          cmds=['import time\ntime.sleep(5)']
+                          #cmds=["python","-c"],
+                          #arguments=["print('hello world')"],
                           labels={"foo": "bar"},
                           name="passing-test",
                           task_id="passing-task",
